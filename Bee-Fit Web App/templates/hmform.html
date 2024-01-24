@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BeeFit Health Metrics Input</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div class="back-button-container">
+        <a class="btn" href="/">Back</a>
+    </div>
+
+    <form id="file-upload-form" action="/upload-file" method="post" enctype="multipart/form-data">
+        <!-- File Upload Input -->
+        <label for="fileUpload">Upload File:</label>
+        <input type="file" id="fileUpload" name="file" accept=".csv, .xlsx" />
+
+        <!-- Submit Button -->
+        <input type="submit" value="Upload File" />
+    </form>
+
+    <form id="health-metrics-form" enctype="multipart/form-data">
+        <!-- Patient_Registration_Number -->
+        <label for="Patient_Registration_Number">Patient Registration Number:</label>
+        <input type="number" id="Patient_Registration_Number" name="Patient_Registration_Number" required />
+        <!-- Race -->
+        <label for="Race">Race:</label>
+        <select id="Race" name="Race" required>
+            <option value="Others">Others</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Malay">Malay</option>
+            <option value="Indian">Indian</option>
+            <option value="Unknown">Prefer Not to say</option>
+        </select>
+        <!-- Education Level -->
+        <label for="Education_level">Education Level:</label>
+        <select id="Education_level" name="Education_level" required>
+            <option value="Form 6 / pre-university graduate">Post-secondary education qualification</option>
+            <option value="Unknown">Prefer Not to say</option>
+            <option value="College/university graduate">Undergraduate</option>
+            <option value="Some secondary education">Some secondary education</option>
+            <option value="Form 5 graduate">Form 5 graduate</option>
+            <option value="Std 6 or less">Primary school education</option>
+            <option value="Post-graduate">Postgraduate</option>
+            <option value="Technical graduate">Technical graduate</option>
+        </select>
+        <!-- Patient Occupation: -->
+        <label for="Patient_occupation">Occupation:</label>
+        <select id="Patient_occupation" name="Patient_occupation" required>
+            <option value="Government servant">Government servant</option>
+            <option value="Self-employed (excludes housewives)">Self-employed (excludes housewives)</option>
+            <option value="Private employment">Private employment</option>
+        </select>
+        <!-- Health Funding -->
+
+        <label for="Health_funding">Health Funding:</label>
+        <select id="Health_funding" name="Health_funding" required>
+            <option value="Fully Funded">Fully Funded</option>
+            <option value="Self funded">Self funded</option>
+            <option value="Semi-Funded">Semi-Funded</option>
+        </select>
+
+        <!-- CR Intake -->
+        <label for="CR_Intake">CR Intake:</label>
+        <select id="CR_Intake" name="CR_Intake" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <!-- Prescribed_Sessions -->
+        <label for="Prescribed_Sessions">Prescribed Sessions:</label>
+        <select id="Prescribed_Sessions" name="Prescribed_Sessions" required>
+            <option value="8 weeks">8 weeks</option>
+            <option value="> 8 weeks">> 8 weeks</option>
+            <option value="Did Not Enroll CR">Did Not Enroll CR</option>
+            <option value="6 weeks">6 weeks</option>
+        </select>
+        <!-- AACVPR Risk Category -->
+        <label for="AACVPR_Risk_Category">AACVPR Risk Category:</label>
+        <select id="AACVPR_Risk_Category" name="AACVPR_Risk_Category" required>
+            <option value="Low">Low</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="High">High</option>
+            <option value="Did Not Enroll CR">Did Not Enroll CR</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+        <!-- CR Adherence -->
+        <label for="CR_Adherence">CR Adherence:</label>
+        <select id="CR_Adherence" name="CR_Adherence" required>
+            <option value="Yes">Yes</option>
+            <option value="Did Not Enroll CR">Did Not Enroll CR</option>
+            <option value="No">No</option>
+        </select>
+
+        <!-- Triglyceride -->
+        <label for="Triglyceride">Triglyceride:</label>
+        <input type="number" id="Triglyceride" name="Triglyceride" required />
+
+        <!-- HDL -->
+        <label for="HDL">HDL (High-Density Lipoprotein):</label>
+        <input type="number" id="HDL" name="HDL" required />
+
+        <!-- LDL -->
+        <label for="LDL">LDL (Low-Density Lipoprotein):</label>
+        <input type="number" id="LDL" name="LDL" required />
+
+        <!-- HbA1c -->
+        <label for="HbA1c">HbA1c:</label>
+        <input type="number" id="HbA1c" name="HbA1c" required />
+        <!-- pre tobacco -->
+        <label for="Pre_Tobacco">Are you a smoker? :</label>
+        <select id="Pre_Tobacco" name="Pre_Tobacco" required>
+            <option value="Never smoked">Never smoked</option>
+            <option value="Former smoker">Former smoker</option>
+            <option value="Current smoker">Current smoker</option>
+        </select>
+        <!-- post tobacco -->
+        <label for="Post_Tobacco">How do you feel after quitting smoking? :</label>
+        <select id="Post_Tobacco" name="Post_Tobacco" required>
+            <option value="nan">Not sure</option>
+            <option value="Abstaining">Abstaining</option>
+            <option value="Unknown">Prefer not to say</option>
+            <option value="Not Abstaining">Not Abstaining</option>
+        </select>
+
+        <!-- Pre-Weight -->
+        <label for="Pre_Weight">Pre Weight (kg):</label>
+        <input type="number" id="Pre_Weight" name="Pre_Weight" required />
+        <!-- Post-Weight (optional, can be removed if not needed) -->
+        <label for="Post_Weight">Post Weight (kg):</label>
+        <input type="number" id="Post_Weight" name="Post_Weight" />
+        <!-- Height -->
+        <label for="Height">Height (cm):</label>
+        <input type="number" id="Height" name="Height" required />
+        <!-- Pre_Exercise_Stress_Test -->
+        <label for="Pre_Exercise_Stress_Test">What was the pre exercise stress test done?:</label>
+        <select id="Pre_Exercise_Stress_Test" name="Pre_Exercise_Stress_Test" required>
+            <option value="Treadmill">Treadmill</option>
+            <option value="6MWT only">6MWT</option>
+            <option value="Arm Ergo">Arm Ergometers</option>
+        </select>
+        <!-- Pre_Peak_Heart_Rate -->
+        <label for="Pre_Peak_Heart_Rate">Pre Peak Heart Rate:</label>
+        <input type="text" id="Pre_Peak_Heart_Rate" name="Pre_Peak_Heart_Rate" />
+        <!-- Pre_METs -->
+        <label for="Pre_METs">Pre Peak Heart Rate:</label>
+        <input type="text" id="Pre_METs" name="Pre_METs" />
+        <!-- Post_Exercise_Stress_Test -->
+        <label for="Post_Exercise_Stress_Test">What was the post exercise stress test done?:</label>
+        <select id="Post_Exercise_Stress_Test" name="Post_Exercise_Stress_Test" required>
+            <option value="nan">Not sure</option>
+            <option value="Treadmill">Treadmill</option>
+            <option value="6MWT only">6MWT</option>
+            <option value="Arm Ergo">Arm Ergometers</option>
+        </select>
+        <!-- Post_Peak_Heart_Rate -->
+        <label for="Post_Peak_Heart_Rate">Post Peak Heart Rate:</label>
+        <input type="text" id="Post_Peak_Heart_Rate" name="Post_Peak_Heart_Rate" />
+
+        <!-- Post_Peak_METs -->
+        <label for="Post_Peak_METs">Post Peak METs:</label>
+        <input type="text" id="Post_Peak_METs" name="Post_Peak_METs" />
+        <!-- Exercise_frequency_mins_week -->
+        <label for="Exercise_frequency_mins_week">Exercise frequency per week(mins):</label>
+        <input type="text" id="Exercise_frequency_mins_week" name="Exercise_frequency_mins_week" />
+        <!-- Exercise_frequency_sessions_week -->
+        <label for="Exercise_frequency_sessions_week">Exercise sessions per week:</label>
+        <input type="text" id="Exercise_frequency_sessions_week" name="Exercise_frequency_sessions_week" />
+        <!-- Exercise Intensity -->
+        <label for="Exercise_intensity">Exercise Intensity:</label>
+        <input type="text" id="Exercise_intensity" name="Exercise_intensity" required />
+        <!-- Anxiety Scores -->
+        <label for="Anxiety_Scores">Anxiety Scores:</label>
+        <input type="number" id="Anxiety_Scores" name="Anxiety_Scores" required />
+
+        <!-- Depression Scores -->
+        <label for="Depression_Scores">Depression Scores:</label>
+        <input type="number" id="Depression_Scores" name="Depression_Scores" required />
+        <!-- Pre-rehabilitation return to work status -->
+        <label for="Pre_RTW">Pre-rehabilitation return to work status:</label>
+        <select id="Pre_RTW" name="Pre_RTW" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Post-rehabilitation return to work status -->
+        <label for="Post_RTW">Post-rehabilitation return to work status:</label>
+        <select id="Post_RTW" name="Post_RTW" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Pre-rehabilitation return to driving status -->
+        <label for="Pre_Return_to_drive">Pre-rehabilitation return to driving status:</label>
+        <select id="Pre_Return_to_drive" name="Pre_Return_to_drive" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Post-rehabilitation return to driving status -->
+        <label for="Post_Return_to_drive">Post-rehabilitation return to driving status:</label>
+        <select id="Post_Return_to_drive" name="Post_Return_to_drive" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Presence of erectile dysfunction before rehabilitation -->
+        <label for="Pre_erectile_dysfunction">Presence of erectile dysfunction before rehabilitation:</label>
+        <select id="Pre_erectile_dysfunction" name="Pre_erectile_dysfunction" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Presence of erectile dysfunction after rehabilitation -->
+        <label for="Post_erectile_dysfunction">Presence of erectile dysfunction after rehabilitation:</label>
+        <select id="Post_erectile_dysfunction" name="Post_erectile_dysfunction" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- MACCE (Major Adverse Cardiac and Cerebrovascular Events) -->
+        <label for="MACCE">MACCE(Major Adverse Cardiac and Cerebrovascular Events):</label>
+        <select id="MACCE" name="MACCE" required>
+            <option value="1.0">Yes</option>
+            <option value="0.0">No</option>
+        </select>
+        <!-- Unexpected Events -->
+        <label for="Unexpected_Events">Unexpected events related to the patient's health:</label>
+        <select id="Unexpected_Events" name="Unexpected_Events" required>
+            <option value="1.0">Yes</option>
+            <option value="0.0">No</option>
+        </select>
+
+        <!-- Residential_Postcode -->
+        <label for="Residential_Postcode">Residential Postcode:</label>
+        <input type="number" id="Residential_Postcode" name="Residential_Postcode" required />
+        <!-- Age -->
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" required />
+
+        <!-- Gender -->
+        <label for="Gender">Gender:</label>
+        <select id="Gender" name="Gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <!-- Pre Left Ventricle Ejection Fraction -->
+        <label for="Pre_Left_Ventricle_EF">Pre Left Ventricle Ejection Fraction:</label>
+        <select id="Pre_Left_Ventricle_EF" name="Pre_Left_Ventricle_EF" required>
+            <option value="nan">Not Specified</option>
+            <option value="more then 50% with no failure symptoms">More than 50% with no failure symptoms</option>
+            <option value="less then 40%">Less than 40%</option>
+            <option value="between 40 to 50%">Between 40 to 50%</option>
+        </select>
+        <!-- Admission Diagnosis Angina -->
+        <label for="Admission_Diagnosis_Angina">Admission Diagnosis Angina:</label>
+        <select id="Admission_Diagnosis_Angina" name="Admission_Diagnosis_Angina" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Admission Diagnosis Arrhythmia -->
+        <label for="Admission_Diagnosis_Arrhythmia">Admission Diagnosis Arrhythmia:</label>
+        <select id="Admission_Diagnosis_Arrhythmia" name="Admission_Diagnosis_Arrhythmia" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Admission Diagnosis CABG -->
+        <label for="Admission_Diagnosis_CABG">Admission Diagnosis CABG:</label>
+        <select id="Admission_Diagnosis_CABG" name="Admission_Diagnosis_CABG" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Admission Diagnosis Heart Failure -->
+        <label for="Admission_Diagnosis_Heart_Failure">Admission Diagnosis Heart Failure:</label>
+        <select id="Admission_Diagnosis_Heart_Failure" name="Admission_Diagnosis_Heart_Failure" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Admission Diagnosis NSTEMI -->
+        <label for="Admission_Diagnosis_NSTEMI">Admission Diagnosis NSTEMI:</label>
+        <select id="Admission_Diagnosis_NSTEMI" name="Admission_Diagnosis_NSTEMI" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Admission Diagnosis Other Cardiothoracic Procedures -->
+        <label for="Admission_Diagnosis_Other_cardiothoracic_procedures">Admission Diagnosis Other Cardiothoracic Procedures:</label>
+        <select id="Admission_Diagnosis_Other_cardiothoracic_procedures" name="Admission_Diagnosis_Other_cardiothoracic_procedures" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Admission Diagnosis PCI -->
+        <label for="Admission_Diagnosis_PCI">Admission Diagnosis PCI:</label>
+        <select id="Admission_Diagnosis_PCI" name="Admission_Diagnosis_PCI" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Admission Diagnosis STEMI -->
+        <label for="Admission_Diagnosis_STEMI">Admission Diagnosis STEMI:</label>
+        <select id="Admission_Diagnosis_STEMI" name="Admission_Diagnosis_STEMI" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Admission Diagnosis Valve Replacement(s) -->
+        <label for="Admission_Diagnosis_Valve_replacement">Admission Diagnosis Valve Replacement(s):</label>
+        <select id="Admission_Diagnosis_Valve_replacement" name="Admission_Diagnosis_Valve_replacement" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Risk Factors DM Type 2 -->
+        <label for="Risk_Factors_DM_Type_2">Risk Factors DM Type 2:</label>
+        <select id="Risk_Factors_DM_Type_2" name="Risk_Factors_DM_Type_2" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Risk Factors High Lipid Profile -->
+        <label for="Risk_Factors_High_Lipid_Profile">Risk Factors High Lipid Profile:</label>
+        <select id="Risk_Factors_High_Lipid_Profile" name="Risk_Factors_High_Lipid_Profile" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Risk Factors Hypertension -->
+        <label for="Risk_Factors_Hypertension">Risk Factors Hypertension:</label>
+        <select id="Risk_Factors_Hypertension" name="Risk_Factors_Hypertension" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Risk Factors None of the Above -->
+        <label for="Risk_Factors_None_of_the_above">Risk Factors None of the Above:</label>
+        <select id="Risk_Factors_None_of_the_above" name="Risk_Factors_None_of_the_above" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Risk Factors Unknown -->
+        <label for="Risk_Factors_Unknown">Risk Factors Unknown:</label>
+        <select id="Risk_Factors_Unknown" name="Risk_Factors_Unknown" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Total Risk Factors -->
+        <label for="Total_Risk_Factors">Total Risk Factors:</label>
+        <select id="Total_Risk_Factors" name="Total_Risk_Factors" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <!-- Past CV Chronic AF -->
+        <label for="Past_CV_Chronic_AF">Past CV Chronic AF:</label>
+        <select id="Past_CV_Chronic_AF" name="Past_CV_Chronic_AF" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Past CV History of Heart Failure -->
+        <label for="Past_CV_Hx_of_HF">Past CV History of HF:</label>
+        <select id="Past_CV_Hx_of_HF" name="Past_CV_Hx_of_HF" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Past CV Implantable Cardiac Defibrillator -->
+        <label for="Past_CV_Implantable_Cardiac_Defibrillator">Past CV Implantable Cardiac Defibrillator:</label>
+        <select id="Past_CV_Implantable_Cardiac_Defibrillator" name="Past_CV_Implantable_Cardiac_Defibrillator" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Past CV None of the Above -->
+        <label for="Past_CV_None of the above">Past CV None of the Above:</label>
+        <select id="Past_CV_None of the above" name="Past_CV_None of the above" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Past CV Previous CABG -->
+        <label for="Past_CV_Prev_CABG">Past CV Previous CABG:</label>
+        <select id="Past_CV_Prev_CABG" name="Past_CV_Prev_CABG" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Past CV Previous MI -->
+        <label for="Past_CV_Prev_MI">Past CV Previous MI:</label>
+        <select id="Past_CV_Prev_MI" name="Past_CV_Prev_MI" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Past CV Previous PCI -->
+        <label for="Past_CV_Prev_PCI">Past CV Previous PCI:</label>
+        <select id="Past_CV_Prev_PCI" name="Past_CV_Prev_PCI" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Past CV Previous Valve Surgery -->
+        <label for="Past_CV_Prev_Valve_Surgery">Past CV Previous Valve Surgery:</label>
+        <select id="Past_CV_Prev_Valve_Surgery" name="Past_CV_Prev_Valve_Surgery" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Past CV Unknown -->
+        <label for="Past_CV_Unknown">Past CV Unknown:</label>
+        <select id="Past_CV_Unknown" name="Past_CV_Unknown" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Triglyceride Category -->
+        <label for="Triglyceride_cat">Triglyceride Category:</label>
+        <select id="Triglyceride_cat" name="Triglyceride_cat" required>
+            <option value="Normal">Normal</option>
+            <option value="High">High</option>
+            <option value="Borderline high">Borderline high</option>
+            <option value="Very High">Very High</option>
+            <option value="nan">Not Specified</option>
+        </select>
+
+        <!-- HDL Category -->
+        <label for="HDL_cat">HDL Category:</label>
+        <select id="HDL_cat" name="HDL_cat" required>
+            <option value="Intermediate risk">Intermediate risk</option>
+            <option value="High Risk">High Risk</option>
+            <option value="Low risk">Low risk</option>
+            <option value="nan">Not Specified</option>
+        </select>
+        <!-- LDL Category -->
+        <label for="LDL_cat">LDL Category:</label>
+        <select id="LDL_cat" name="LDL_cat" required>
+            <option value="Intermediate risk">Intermediate risk</option>
+            <option value="Low Risk">Low Risk</option>
+            <option value="High risk">High risk</option>
+            <option value="nan">Not Specified</option>
+        </select>
+
+        <!-- HbA1c Category -->
+        <label for="HbA1c_cat">HbA1c Category:</label>
+        <select id="HbA1c_cat" name="HbA1c_cat" required>
+            <option value="Normal">Normal</option>
+            <option value="Prediabetes">Prediabetes</option>
+            <option value="Diabetes">Diabetes</option>
+            <option value="nan">Not Specified</option>
+        </select>
+
+        <!-- Blood Pressure (Systolic & Diastolic) -->
+        <label for="Pre_BP_systolic">Pre Blood Pressure Systolic:</label>
+        <input type="number" id="Pre_BP_systolic" name="Pre_BP_systolic" required />
+
+        <label for="Pre_BP_diastolic">Pre Blood Pressure Diastolic:</label>
+        <input type="number" id="Pre_BP_diastolic" name="Pre_BP_diastolic" required />
+        <!-- Pre Blood Pressure Category -->
+        <label for="Pre_BP_cat">Pre Blood Pressure Category:</label>
+        <select id="Pre_BP_cat" name="Pre_BP_cat" required>
+            <option value="Optimal">Optimal</option>
+            <option value="Isolated Systolic Hypertension">Isolated Systolic Hypertension</option>
+            <option value="At Risk">At Risk</option>
+            <option value="Normal">Normal</option>
+            <option value="Hypertension Stage 1">Hypertension Stage 1</option>
+            <option value="Hypertension Stage 2">Hypertension Stage 2</option>
+            <option value="Hypertension Stage 3">Hypertension Stage 3</option>
+            <option value="nan">Not Specified</option>
+        </select>
+        <!-- CR_BP_systolic -->
+        <label for="CR_BP_systolic">CR Blood Pressure systolic:</label>
+        <input type="number" id="CR_BP_systolic" name="CR_BP_systolic" required />
+        <!-- CR_BP_diastolic -->
+        <label for="CR_BP_diastolic">CR Blood Pressure Diastolic:</label>
+        <input type="number" id="CR_BP_diastolic" name="CR_BP_diastolic" required />
+        <!-- CR Blood Pressure Category -->
+        <label for="CR_BP_cat">CR Blood Pressure Category:</label>
+        <select id="CR_BP_cat" name="CR_BP_cat" required>
+            <option value="Optimal">Optimal</option>
+            <option value="Normal">Normal</option>
+            <option value="Isolated Systolic Hypertension">Isolated Systolic Hypertension</option>
+            <option value="At Risk">At Risk</option>
+            <option value="Hypertension Stage 1">Hypertension Stage 1</option>
+            <option value="nan">Not Specified</option>
+        </select>
+        <!-- Postal Code -->
+        <label for="postal_code">Postal Code:</label>
+        <input type="text" id="postal_code" name="postal_code" autocomplete="postal-code" required />
+
+        <!-- Place Name -->
+        <label for="place_name">Area Name:</label>
+        <select id="place_name" name="place_name" required>
+            <option value="nan">Not Specified</option>
+            <option value="Klang">Klang</option>
+            <option value="Sungai Buloh">Sungai Buloh</option>
+            <option value="Kuala Lumpur, Pandan">Kuala Lumpur, Pandan</option>
+            <option value="Kuala Lumpur">Kuala Lumpur</option>
+            <option value="Petaling Jaya">Petaling Jaya</option>
+            <option value="Subang Jaya">Subang Jaya</option>
+            <option value="Kuala Lumpur, Gombak">Kuala Lumpur, Gombak</option>
+            <option value="Dong">Dong</option>
+            <option value="Puchong, Sungai Buloh">Puchong, Sungai Buloh</option>
+            <option value="Seremban">Seremban</option>
+            <option value="Kuala Selangor">Kuala Selangor</option>
+            <option value="Kuala Terengganu">Kuala Terengganu</option>
+            <option value="Ampang">Ampang</option>
+            <option value="Shah Alam">Shah Alam</option>
+            <option value="Chini">Chini</option>
+            <option value="Subang Jaya, Petaling Jaya">Subang Jaya, Petaling Jaya</option>
+            <option value="Seri Kembangan">Seri Kembangan</option>
+            <option value="Telok Panglima Garang">Telok Panglima Garang</option>
+            <option value="Batu Caves, Batu Caves">Batu Caves, Batu Caves</option>
+            <option value="Kuala Lumpur, Cheras">Kuala Lumpur, Cheras</option>
+            <option value="Pelabuhan Klang">Pelabuhan Klang</option>
+            <option value="Miri">Miri</option>
+            <option value="Hulu Langat">Hulu Langat</option>
+            <option value="Nilai">Nilai</option>
+            <option value="Kuala Lumpur, Setapak">Kuala Lumpur, Setapak</option>
+            <option value="Semenyih">Semenyih</option>
+            <option value="Ipoh">Ipoh</option>
+            <option value="Melaka">Melaka</option>
+            <option value="Puchong">Puchong</option>
+            <option value="Rawang">Rawang</option>
+            <option value="Rawang, Batu Arang">Rawang, Batu Arang</option>
+            <option value="Kajang">Kajang</option>
+        </select>
+        <!-- State Name -->
+        <label for="state_name">State Name:</label>
+        <select id="state_name" name="state_name" required>
+            <option value="nan">Not Specified</option>
+            <option value="Selangor">Selangor</option>
+            <option value="Kuala Lumpur">Kuala Lumpur</option>
+            <option value="Pahang">Pahang</option>
+            <option value="Negeri Sembilan">Negeri Sembilan</option>
+            <option value="Terengganu">Terengganu</option>
+            <option value="Sarawak">Sarawak</option>
+            <option value="Perak">Perak</option>
+            <option value="Melaka">Melaka</option>
+        </select>
+        <!-- Latitude -->
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" placeholder="Enter latitude" required />
+        <!-- Longitude -->
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" placeholder="Enter longitude" required />
+        <!-- Pre Medication ACEI/ARB -->
+        <label for="Pre_Medication_ACEI_ARB">Pre Medication ACEI/ARB:</label>
+        <select id="Pre_Medication_ACEI_ARB" name="Pre_Medication_ACEI_ARB" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Pre Medication Aspirin -->
+        <label for="Pre_Medication_Aspirin">Pre Medication Aspirin:</label>
+        <select id="Pre_Medication_Aspirin" name="Pre_Medication_Aspirin" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Pre Medication Beta-antagonist -->
+        <label for="Pre_Medication_Beta_antagonist">Pre Medication Beta-antagonist:</label>
+        <select id="Pre_Medication_Beta_antagonist" name="Pre_Medication_Beta_antagonist" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Pre Medication Statin -->
+        <label for="Pre_Medication_Statin">Pre Medication Statin:</label>
+        <select id="Pre_Medication_Statin" name="Pre_Medication_Statin" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Post Medication ACEI/ARB -->
+        <label for="Post_Medication_ACEI_ARB">Post Medication ACEI/ARB:</label>
+        <select id="Post_Medication_ACEI_ARB" name="Post_Medication_ACEI_ARB" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Post Medication Aspirin -->
+        <label for="Post_Medication_Aspirin">Post Medication Aspirin:</label>
+        <select id="Post_Medication_Aspirin" name="Post_Medication_Aspirin" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- Post Medication Beta-antagonist -->
+        <label for="Post_Medication_Beta_antagonist">Post Medication Beta-antagonist:</label>
+        <select id="Post_Medication_Beta_antagonist" name="Post_Medication_Beta_antagonist" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- Post Medication Statin -->
+        <label for="Post_Medication_Statin">Post Medication Statin:</label>
+        <select id="Post_Medication_Statin" name="Post_Medication_Statin" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- CR_Medication_ACEI/ARB -->
+        <label for="CR_Medication_ACEI_ARB">CR Medication ACEI/ARB:</label>
+        <select id="CR_Medication_ACEI_ARB" name="CR_Medication_ACEI_ARB" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <!-- CR_Medication_Aspirin -->
+        <label for="CR_Medication_Aspirin">CR Medication Aspirin:</label>
+        <select id="CR_Medication_Aspirin" name="CR_Medication_Aspirin" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- CR_Medication_Beta-antagonist -->
+        <label for="CR_Medication_Beta_antagonist">CR Medication Beta-antagonist:</label>
+        <select id="CR_Medication_Beta_antagonist" name="CR_Medication_Beta_antagonist" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- CR_Medication_Statin* -->
+        <label for="CR_Medication_Statin">CR Medication Statin:</label>
+        <select id="CR_Medication_Statin" name="CR_Medication_Statin" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <!-- CR Completion -->
+        <label for="CR_Completion">CR Completion:</label>
+        <select id="CR_Completion" name="CR_Completion" required>
+            <option value="Yes">Yes</option>
+            <option value="Did not enroll to CR">Did not enroll to CR</option>
+            <option value="No">No</option>
+        </select>
+        <!-- Duration_Between_Ward_Enrollment -->
+        <label for="Duration_Between_Ward_Enrollment">Duration Between Ward Enrollment:</label>
+        <input type="number" id="Duration_Between_Ward_Enrollment" name="Duration_Between_Ward_Enrollment" required />
+
+        <!-- Duration_CR -->
+        <label for="Duration_CR">CR Duration:</label>
+        <input type="number" id="Duration_CR" name="Duration_CR" required />
+
+        <!-- Pre_BMI -->
+        <label for="Pre_BMI">Pre BMI:</label>
+        <input type="number" id="Pre_BMI" name="Pre_BMI" required />
+        <!-- Post_BMI -->
+        <label for="Post_BMI">Pre BMI:</label>
+        <input type="number" id="Post_BMI" name="Post_BMI" required />
+        <!-- Pre BMI Range -->
+        <label for="Pre_BMI_range">Pre BMI Range:</label>
+        <select id="Pre_BMI_range" name="Pre_BMI_range" required>
+            <option value="Normal">Normal</option>
+            <option value="Obesity">Obesity</option>
+            <option value="Overweight">Overweight</option>
+            <option value="nan">Not Specified</option>
+            <option value="Underweight">Underweight</option>
+        </select>
+
+        <!-- Post BMI Range -->
+        <label for="Post_BMI_range">Post BMI Range:</label>
+        <select id="Post_BMI_range" name="Post_BMI_range" required>
+            <option value="Normal">Normal</option>
+            <option value="Obesity">Obesity</option>
+            <option value="Overweight">Overweight</option>
+            <option value="nan">Not Specified</option>
+            <option value="Underweight">Underweight</option>
+        </select>
+
+        <!-- Pre Peak Heart Rate Range -->
+        <label for="Pre_Peak_Heart_Rate_range">Pre Peak Heart Rate Range:</label>
+        <select id="Pre_Peak_Heart_Rate_range" name="Pre_Peak_Heart_Rate_range" required>
+            <option value="Moderate">Moderate</option>
+            <option value="Hard">Hard</option>
+            <option value="Light">Light</option>
+            <option value="Very Light">Very Light</option>
+            <option value="Very Hard">Very Hard</option>
+            <option value="nan">Not Specified</option>
+        </select>
+
+        <!-- Post Peak Heart Rate Range -->
+        <label for="Post_Peak_Heart_Rate_range">Post Peak Heart Rate Range:</label>
+        <select id="Post_Peak_Heart_Rate_range" name="Post_Peak_Heart_Rate_range" required>
+            <option value="nan">Not Specified</option>
+            <option value="Very Light">Very Light</option>
+            <option value="Very Hard">Very Hard</option>
+            <option value="Hard">Hard</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Light">Light</option>
+        </select>
+        <!-- Pre METs Range -->
+        <label for="Pre_METs_range">Pre METs Range:</label>
+        <select id="Pre_METs_range" name="Pre_METs_range" required>
+            <option value="nan">Not Specified</option>
+            <option value="Vigorous Intensity">Vigorous Intensity</option>
+            <option value="Moderate Intensity">Moderate Intensity</option>
+            <option value="Light Intensity">Light Intensity</option>
+        </select>
+        <!-- Post Peak METs Range -->
+        <label for="Post_Peak_METs_range">Post Peak METs Range:</label>
+        <select id="Post_Peak_METs_range" name="Post_Peak_METs_range" required>
+            <option value="nan">Not Specified</option>
+            <option value="Vigorous Intensity">Vigorous Intensity</option>
+            <option value="Moderate Intensity">Moderate Intensity</option>
+            <option value="Light Intensity">Light Intensity</option>
+        </select>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit" />
+    </form>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

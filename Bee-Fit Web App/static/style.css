@@ -1,0 +1,108 @@
+* {
+   box-sizing: border-box;
+}
+
+body {
+   font-family: "Arial", sans-serif;
+   text-align: center;
+   background-color: #f0f0f0;
+}
+
+#start-screen a.btn {
+   margin: 10px;
+   padding: 10px 20px;
+   font-size: 18px;
+}
+
+#health-metrics-form {
+   margin: 20px auto;
+   padding: 20px;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   max-width: 400px;
+   background-color: #fff;
+}
+
+#health-metrics-form label,
+#health-metrics-form input,
+#health-metrics-form select {
+   display: block;
+   width: 100%;
+   margin: 5px 0;
+}
+
+.back-button-container {
+   position: absolute;
+   top: 15px;
+   left: 10px;
+   z-index: 10;
+}
+
+a.btn {
+   color: #00b3ff;
+   font-weight: 500;
+   font-size: 18px;
+   padding: 4px 8px;
+   border: 2px solid #00b3ff;
+   border-radius: 5px;
+   text-decoration: none;
+}
+
+.page-title {
+   margin-top: 40px;
+}
+
+.nav-bar {
+   margin-top: 40px;
+}
+
+.dropdown-check-list {
+   display: inline-block;
+}
+.dropdown-check-list .anchor {
+   position: relative;
+   cursor: pointer;
+   display: inline-block;
+   padding: 5px 50px 5px 10px;
+   border: 1px solid #ccc;
+}
+.dropdown-check-list .anchor:after {
+   position: absolute;
+   content: "";
+   border-left: 2px solid black;
+   border-top: 2px solid black;
+   padding: 5px;
+   right: 10px;
+   top: 20%;
+   -moz-transform: rotate(-135deg);
+   -ms-transform: rotate(-135deg);
+   -o-transform: rotate(-135deg);
+   -webkit-transform: rotate(-135deg);
+   transform: rotate(-135deg);
+}
+.dropdown-check-list .items {
+   display: none;
+   position: absolute;
+   z-index: 1;
+   background-color: #fff;
+   border: 1px solid #ccc;
+}
+.dropdown-check-list .items li {
+   list-style: none;
+}
+
+table {
+   width: 100%;
+   border-collapse: collapse;
+}
+
+th,
+td {
+   border: 1px solid black;
+   padding: 8px;
+   text-align: left;
+}
+
+th {
+   background-color: #f2f2f2;
+}

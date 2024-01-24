@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BeeFit Leaderboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="back-button-container">
+        <a class="btn" href="/">Back</a>
+    </div>
+    <h1 class="page-title">BeeFit Leaderboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Patient Reg No.</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>
+                    {{user.Patient_Registration_Number}}
+                </td>
+                <td>
+                    {{user.Height_Score}}
+                </td>
+            </tr>
+            {% endfor %}
+            <!-- Dynamic rows will be added here based on game data -->
+        </tbody>
+    </table>
+</body>
+
+</html>

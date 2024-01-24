@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>BeeFit Game</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script>
+        window.level = "{{ level }}";
+        console.log(window.level)
+    </script>
+    <script defer="defer" src="/static/game.js"></script>
+</head>
+
+<body>
+    <div class="back-button-container">
+        <a class="btn" href="/">Back</a>
+    </div>
+
+    <div id="game-root"></div>
+    <div id="web-root"></div>
+</body>
+
+</html>

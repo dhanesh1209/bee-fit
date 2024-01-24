@@ -1,0 +1,71 @@
+Exception on /game [GET]
+Traceback (most recent call last):
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\app.py", line 229, in game
+    level = predict_level(user.to_dict())
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\prediction.py", line 618, in predict_level
+    predicted_numerical_intensity = svm_classifier.predict(X_normalized)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\sklearn\svm\_base.py", line 818, in predict
+    y = super().predict(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\sklearn\svm\_base.py", line 431, in predict
+    X = self._validate_for_predict(X)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\sklearn\svm\_base.py", line 611, in _validate_for_predict
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\sklearn\base.py", line 605, in _validate_data
+    out = check_array(X, input_name="X", **check_params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\sklearn\utils\validation.py", line 957, in check_array
+    _assert_all_finite(
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\sklearn\utils\validation.py", line 122, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "C:\Users\Mohsin\Desktop\Web_App\.venv\Lib\site-packages\sklearn\utils\validation.py", line 171, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+SVC does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+PRN: 1
+Session closed
+Level: Easy
+PRN: 1
+Session closed
+Level: Easy
+PRN: 1
+Session closed
+PRN: 1
+Session closed
+Level: Medium
+(1, 'Form 6 / pre-university graduate', 0)
+Session closed
+Starting Flask app
+Starting Flask app
+PRN: None
+Exception: No active exception to reraise
+Session closed
+Received Data: {'Patient_Registration_Number': '1234', 'Race': 'Others', 'Education_level': 'Form 6 / pre-university graduate', 'Patient_occupation': 'Government servant', 'Health_funding': 'Fully Funded', 'CR_Intake': 'Yes', 'Prescribed_Sessions': '8 weeks', 'AACVPR_Risk_Category': 'Low', 'CR_Adherence': 'Yes', 'Triglyceride': '12', 'HDL': '12', 'LDL': '12', 'HbA1c': '12', 'Pre_Tobacco': 'Never smoked', 'Post_Tobacco': 'nan', 'Pre_Weight': '12', 'Post_Weight': '12', 'Height': '12', 'Pre_Exercise_Stress_Test': 'Treadmill', 'Pre_Peak_Heart_Rate': '12', 'Pre_METs': '12', 'Post_Exercise_Stress_Test': 'nan', 'Post_Peak_Heart_Rate': '12', 'Post_Peak_METs': '12', 'Exercise_frequency_mins_week': '12', 'Exercise_frequency_sessions_week': '12', 'Exercise_intensity': '12', 'Anxiety_Scores': '12', 'Depression_Scores': '12', 'Pre_RTW': '1', 'Post_RTW': '1', 'Pre_Return_to_drive': '1', 'Post_Return_to_drive': '1', 'Pre_erectile_dysfunction': '1', 'Post_erectile_dysfunction': '1', 'MACCE': '1.0', 'Unexpected_Events': '1.0', 'Residential_Postcode': '12', 'Age': '12', 'Gender': 'Male', 'Pre_Left_Ventricle_EF': 'nan', 'Admission_Diagnosis_Angina': '1', 'Admission_Diagnosis_Arrhythmia': '1', 'Admission_Diagnosis_CABG': '1', 'Admission_Diagnosis_Heart_Failure': '1', 'Admission_Diagnosis_NSTEMI': '1', 'Admission_Diagnosis_Other_cardiothoracic_procedures': '1', 'Admission_Diagnosis_PCI': '1', 'Admission_Diagnosis_STEMI': '1', 'Admission_Diagnosis_Valve_replacement': '1', 'Risk_Factors_DM_Type_2': '1', 'Risk_Factors_High_Lipid_Profile': '1', 'Risk_Factors_Hypertension': '1', 'Risk_Factors_None_of_the_above': '1', 'Risk_Factors_Unknown': '1', 'Total_Risk_Factors': '0', 'Past_CV_Chronic_AF': '1', 'Past_CV_Hx_of_HF': '1', 'Past_CV_Implantable_Cardiac_Defibrillator': '1', 'Past_CV_None_of_the_above': '1', 'Past_CV_Prev_CABG': '1', 'Past_CV_Prev_MI': '1', 'Past_CV_Prev_PCI': '1', 'Past_CV_Prev_Valve_Surgery': '1', 'Past_CV_Unknown': '1', 'Triglyceride_cat': 'Normal', 'HDL_cat': 'Intermediate risk', 'LDL_cat': 'Intermediate risk', 'HbA1c_cat': 'Normal', 'Pre_BP_systolic': '12', 'Pre_BP_diastolic': '12', 'Pre_BP_cat': 'Optimal', 'CR_BP_systolic': '12', 'CR_BP_diastolic': '12', 'CR_BP_cat': 'Optimal', 'postal_code': '12', 'place_name': 'nan', 'state_name': 'nan', 'latitude': '121', 'longitude': '12', 'Pre_Medication_ACEI_ARB': '1', 'Pre_Medication_Aspirin': '1', 'Pre_Medication_Beta_antagonist': '1', 'Pre_Medication_Statin': '1', 'Post_Medication_ACEI_ARB': '1', 'Post_Medication_Aspirin': '1', 'Post_Medication_Beta_antagonist': '1', 'Post_Medication_Statin': '1', 'CR_Medication_ACEI_ARB': '1', 'CR_Medication_Aspirin': '1', 'CR_Medication_Beta_antagonist': '1', 'CR_Medication_Statin': '1', 'CR_Completion': 'Yes', 'Duration_Between_Ward_Enrollment': '12', 'Duration_CR': '12', 'Pre_BMI': '12', 'Post_BMI': '12', 'Pre_BMI_range': 'Normal', 'Post_BMI_range': 'Normal', 'Pre_Peak_Heart_Rate_range': 'Moderate', 'Post_Peak_Heart_Rate_range': 'nan', 'Pre_METs_range': 'nan', 'Post_Peak_METs_range': 'nan'}
+{'Patient_Registration_Number': '1234', 'Race': 'Others', 'Education_level': 'Form 6 / pre-university graduate', 'Patient_occupation': 'Government servant', 'Health_funding': 'Fully Funded', 'CR_Intake': 'Yes', 'Prescribed_Sessions': '8 weeks', 'AACVPR_Risk_Category': 'Low', 'CR_Adherence': 'Yes', 'Triglyceride': '12', 'HDL': '12', 'LDL': '12', 'HbA1c': '12', 'Pre_Tobacco': 'Never smoked', 'Post_Tobacco': 'nan', 'Pre_Weight': '12', 'Post_Weight': '12', 'Height': '12', 'Pre_Exercise_Stress_Test': 'Treadmill', 'Pre_Peak_Heart_Rate': '12', 'Pre_METs': '12', 'Post_Exercise_Stress_Test': 'nan', 'Post_Peak_Heart_Rate': '12', 'Post_Peak_METs': '12', 'Exercise_frequency_mins_week': '12', 'Exercise_frequency_sessions_week': '12', 'Exercise_intensity': '12', 'Anxiety_Scores': '12', 'Depression_Scores': '12', 'Pre_RTW': '1', 'Post_RTW': '1', 'Pre_Return_to_drive': '1', 'Post_Return_to_drive': '1', 'Pre_erectile_dysfunction': '1', 'Post_erectile_dysfunction': '1', 'MACCE': '1.0', 'Unexpected_Events': '1.0', 'Residential_Postcode': '12', 'Age': '12', 'Gender': 'Male', 'Pre_Left_Ventricle_EF': 'nan', 'Admission_Diagnosis_Angina': '1', 'Admission_Diagnosis_Arrhythmia': '1', 'Admission_Diagnosis_CABG': '1', 'Admission_Diagnosis_Heart_Failure': '1', 'Admission_Diagnosis_NSTEMI': '1', 'Admission_Diagnosis_Other_cardiothoracic_procedures': '1', 'Admission_Diagnosis_PCI': '1', 'Admission_Diagnosis_STEMI': '1', 'Admission_Diagnosis_Valve_replacement': '1', 'Risk_Factors_DM_Type_2': '1', 'Risk_Factors_High_Lipid_Profile': '1', 'Risk_Factors_Hypertension': '1', 'Risk_Factors_None_of_the_above': '1', 'Risk_Factors_Unknown': '1', 'Total_Risk_Factors': '0', 'Past_CV_Chronic_AF': '1', 'Past_CV_Hx_of_HF': '1', 'Past_CV_Implantable_Cardiac_Defibrillator': '1', 'Past_CV_None_of_the_above': '1', 'Past_CV_Prev_CABG': '1', 'Past_CV_Prev_MI': '1', 'Past_CV_Prev_PCI': '1', 'Past_CV_Prev_Valve_Surgery': '1', 'Past_CV_Unknown': '1', 'Triglyceride_cat': 'Normal', 'HDL_cat': 'Intermediate risk', 'LDL_cat': 'Intermediate risk', 'HbA1c_cat': 'Normal', 'Pre_BP_systolic': '12', 'Pre_BP_diastolic': '12', 'Pre_BP_cat': 'Optimal', 'CR_BP_systolic': '12', 'CR_BP_diastolic': '12', 'CR_BP_cat': 'Optimal', 'postal_code': '12', 'place_name': 'nan', 'state_name': 'nan', 'latitude': '121', 'longitude': '12', 'Pre_Medication_ACEI_ARB': '1', 'Pre_Medication_Aspirin': '1', 'Pre_Medication_Beta_antagonist': '1', 'Pre_Medication_Statin': '1', 'Post_Medication_ACEI_ARB': '1', 'Post_Medication_Aspirin': '1', 'Post_Medication_Beta_antagonist': '1', 'Post_Medication_Statin': '1', 'CR_Medication_ACEI_ARB': '1', 'CR_Medication_Aspirin': '1', 'CR_Medication_Beta_antagonist': '1', 'CR_Medication_Statin': '1', 'CR_Completion': 'Yes', 'Duration_Between_Ward_Enrollment': '12', 'Duration_CR': '12', 'Pre_BMI': '12', 'Post_BMI': '12', 'Pre_BMI_range': 'Normal', 'Post_BMI_range': 'Normal', 'Pre_Peak_Heart_Rate_range': 'Moderate', 'Post_Peak_Heart_Rate_range': 'nan', 'Pre_METs_range': 'nan', 'Post_Peak_METs_range': 'nan', 'Height_Score': None}
+Data processed successfully
+Session closed
+PRN: 1234
+Session closed
+Level: Medium
+(1, 0)
+(1234, 0)
+Session closed
+(1, 'Form 6 / pre-university graduate', 0)
+(1234, 'Form 6 / pre-university graduate', 0)
+Session closed
